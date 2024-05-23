@@ -1,0 +1,89 @@
+{
+    "exercises": [
+      {
+        "name": "Push-up",
+        "targetMuscle": "Chest",
+        "description": "A bodyweight exercise that primarily targets the chest, shoulders, and triceps.",
+        "photo": "https://i.pinimg.com/originals/c5/1f/83/c51f8385341906f47643cb051c60bb3e.gif",
+        "videoLink": "https://www.youtube.com/watch?v=IODxDxX7oi4"
+      },
+      {
+        "name": "Bench Press",
+        "targetMuscle": "Chest",
+        "description": "A compound exercise that involves pressing a weight upwards from a supine position, targeting the chest, shoulders, and triceps.",
+        "photo": "https://i.pinimg.com/564x/5e/ef/03/5eef0397dd47c74d69ee2a766fc744a7.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=4T9UQ4FBVXI"
+      },
+      {
+        "name": "Chest Fly",
+        "targetMuscle": "Chest",
+        "description": "An isolation exercise that targets the chest muscles by bringing the arms together in front of the body.",
+        "photo": "https://i.pinimg.com/236x/ed/4d/1f/ed4d1f6ce1bdbb4cda128ac708272500.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=jOkv1iGT8gk"
+      },
+      {
+        "name": "Bicep Curl",
+        "targetMuscle": "Biceps",
+        "description": "An isolation exercise targeting the biceps, performed by curling the weight up towards the shoulder.",
+        "photo": "https://i.pinimg.com/236x/66/3b/7b/663b7b7edea58bcd5998b22e201cd2de.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=6Q7jXjHOPEc"
+      },
+      {
+        "name": "Tricep Dip",
+        "targetMuscle": "Triceps",
+        "description": "A compound exercise that targets the triceps, performed by dipping the body down and pushing it back up using the arms.",
+        "photo": "https://i.pinimg.com/564x/71/34/3e/71343e6ab58e13efb9894e6776b04630.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=0326dy_-CzM"
+      },
+      {
+        "name": "Squat",
+        "targetMuscle": "Legs",
+        "description": "A compound exercise that targets the quadriceps, hamstrings, and glutes by lowering the body into a seated position and standing back up.",
+        "photo": "https://i.pinimg.com/236x/16/05/04/160504330da48294d2fc01a9ccf4a387.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=aclHkVaku9U"
+      },
+      {
+        "name": "Deadlift",
+        "targetMuscle": "Legs",
+        "description": "A compound exercise that targets the lower back, hamstrings, and glutes by lifting a weighted barbell or dumbbells from the ground to a standing position.",
+        "photo": "https://i.pinimg.com/564x/eb/05/c4/eb05c4909a16766d5e2b5a7aa1bdb9e0.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=op9kVnSso6Q"
+      },
+      {
+        "name": "Pull-up",
+        "targetMuscle": "Back",
+        "description": "An upper body exercise targeting the back muscles, performed by pulling oneself up to a bar.",
+        "photo": "https://i.pinimg.com/236x/c0/fe/9e/c0fe9ed6b12073800f817edb57957eaf.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=eGo4IYlbE5g"
+      },
+      {
+        "name": "Shoulder Press",
+        "targetMuscle": "Shoulders",
+        "description": "An exercise targeting the deltoid muscles, performed by pressing a weight overhead from shoulder height to full extension.",
+        "photo": "https://i.pinimg.com/564x/08/a0/9d/08a09d9fc274ce68eb9d2873b8fca131.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=JUGjgkjeCtE"
+      },
+      {
+        "name": "Leg Press",
+        "targetMuscle": "Legs",
+        "description": "A resistance machine exercise targeting the quadriceps, hamstrings, and glutes.",
+        "photo": "https://i.pinimg.com/236x/6e/77/3d/6e773d8f6913a93bf2a3e3d31e1e3f0f.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=oGi9dtpd2wU"
+      },
+      {
+        "name": "Barbell Row",
+        "targetMuscle": "Back",
+        "description": "An exercise targeting the upper back and lats, performed by pulling a weighted barbell towards the torso.",
+        "photo": "https://i.pinimg.com/236x/05/35/f7/0535f7542644b54344852470d02a2bf5.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=G8l_8chR5BE"
+      },
+      {
+        "name": "Lateral Raise",
+        "targetMuscle": "Shoulders",
+        "description": "An isolation exercise targeting the deltoid muscles, performed by raising the arms laterally to shoulder height.",
+        "photo": "https://i.pinimg.com/564x/d7/a1/69/d7a169af0ed7491391866f69730b2404.jpg",
+        "videoLink": "https://www.youtube.com/watch?v=vj2w851ZHRM"
+      }
+    ]
+  }
+  

@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use app\Services\ExerciseService;
-use Illuminate\Http\Request;
-
-
+use App\Services\ExerciseService;
 
 class ExerciseController extends Controller
 {
@@ -16,28 +13,15 @@ class ExerciseController extends Controller
         $this->exerciseService = $exerciseService;
     }
 
-    public function getMenExercises()
-    {
-        $exercises = $this->exerciseService->getExercisesByTarget('chest');
-        return response()->json($exercises);
-    }
-
-    public function getWomenExercises()
-    {
-        $exercises = $this->exerciseService->getExercisesByTarget('legs');
-        return response()->json($exercises);
-    }
-
-
     public function showMenExercises()
-{
-    $exercises = $this->exerciseService->getExercisesByTarget('chest');
-    return view('exercises.men', compact('exercises'));
-}
+    {
+        $exercises = $this->exerciseService->getMenExercises();
+        return view('exercises.men', compact('exercises'));
+    }
 
-public function showWomenExercises()
-{
-    $exercises = $this->exerciseService->getExercisesByTarget('legs');
-    return view('exercises.women', compact('exercises'));
-}
+    public function showWomenExercises()
+    {
+        $exercises = $this->exerciseService->getWomenExercises();
+        return view('exercises.women', compact('exercises'));
+    }
 }

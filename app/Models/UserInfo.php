@@ -10,6 +10,8 @@ class UserInfo extends Model
     use HasFactory;
 
     protected $table = 'user_infos'; // Ensure this matches your table name
-    protected $fillable = ['last_name', 'first_name', 'sex', 'cin', 'birth', 'email', 'phone', 'address'];
-
-}
+    protected $fillable = ['last_name', 'first_name', 'sex', 'cin', 'birth', 'email', 'phone', 'address','payement'];
+    public function expiredSubscriptions()
+    {
+        return $this->hasMany(ExpiredSubscription::class, 'user_id');
+    }}

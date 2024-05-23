@@ -5,6 +5,7 @@ use App\Http\Controllers\tripleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GymerController;
 use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\SubscriptionController;
 use App\Services\ExerciseService;
 
 
@@ -35,6 +36,8 @@ Route::get('/admin', [GymerController::class, 'index'])->name('admin');
     Route::post('/admin/{id}',[GymerController::class,'show'])->name('user.show');
 Route::post('/admin/{id}', [GymerController::class, 'updateInfo'])->name('update');
 Route::delete('/admin/{id}', [GymerController::class, 'destroy'])->name('admin.destroy');
+Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
+
 
 
 
@@ -48,9 +51,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-
-// Route::get('/exercises/men', [ExerciseController::class, 'getMenExercises']);
-// Route::get('/exercises/women', [ExerciseController::class, 'getWomenExercises']);
-
-Route::get('/exercises/men', [ExerciseController::class, 'showMenExercises']);
-Route::get('/exercises/women', [ExerciseController::class, 'showWomenExercises']);
+Route::get('/men-exercises', [ExerciseController::class, 'showMenExercises']);
+Route::get('/women-exercises', [ExerciseController::class, 'showWomenExercises']);

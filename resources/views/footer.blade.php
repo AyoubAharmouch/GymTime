@@ -8,12 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-lzjgDkKJWWf4BeX5T04UQUK7nN3U+QbeD6U/Bc5EmiEbdzVOq2G3go7fC3FQxbF" crossorigin="anonymous"></script>
     <style>
-        .Footer{
+        .footer {
     background-color: rgb(0, 0, 0);
-    color:white;
-    position: fixed;;
-    bottom: 0px;
-    width:100%;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
 }
 .footlink{
     color:rgb(158, 158, 158);

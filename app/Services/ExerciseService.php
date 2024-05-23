@@ -1,42 +1,25 @@
 <?php
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
+
+namespace App\Services;
 
 class ExerciseService
 {
-    protected $client;
-
-    public function __construct()
+    public function getMenExercises()
     {
-        $this->client = new Client([
-            'base_uri' => 'https://exercisedb.p.rapidapi.com/',
-            'headers' => [
-                'X-RapidAPI-Host' => 'exercisedb.p.rapidapi.com',
-                'X-RapidAPI-Key' => env('RAPIDAPI_KEY'),
-            ],
-            'verify' => 'path/to/cacert.pem', // Specify the path to CA certificates bundle
-        ]);
+        // Load and decode MenExercises.json file
+        $menExercisesJson = file_get_contents(resource_path('json/MenExercises.json'));
+        // return json_decode($menExercisesJson['exercises'], true);
+        $menExercises = json_decode($menExercisesJson, true);
+    // dd($menExercises['exercises']); // Debugging statement
+    return $menExercises['exercises'];
     }
 
-    public function getExercisesByTarget($target)
+    public function getWomenExercises()
     {
-        try {
-            $response = $this->client->get("exercises/target/{$target}");
-            return json_decode($response->getBody(), true);
-        } catch (RequestException $e) {
-            // Handle request exception
-            return [];
-        }
-    }
-
-    public function getAllExercises()
-    {
-        try {
-            $response = $this->client->get("exercises");
-            return json_decode($response->getBody(), true);
-        } catch (RequestException $e) {
-            // Handle request exception
-            return [];
-        }
+        // Load and decode WomenExercises.json file
+        $womenExercisesJson = file_get_contents(resource_path('json/WomenExercises.json'));
+        $womenExercisesJson = json_decode($womenExercisesJson, true);
+    // dd($menExercises['exercises']); // Debugging statement
+    return $womenExercisesJson['exercises'];
     }
 }
