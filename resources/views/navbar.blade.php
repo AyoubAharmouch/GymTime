@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md  navbar-dark bg-dark fixed-top px-2">
+    {{-- <nav class="navbar navbar-expand-md  navbar-dark bg-dark fixed-top px-2">
         <a href="#" class="navbar-brand">LOGO</a>
         <button class="navbar-toggler"  data-bs-toggle="collapse" data-bs-target="#nav1">
             <span class="navbar-toggler-icon"></span>
@@ -32,6 +32,41 @@
             </ul>
         </div>
 
-   </nav>
+   </nav> --}}
+
+
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand " href="page-top">SpartaGym</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link " href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link " href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+                {{-- <li class="nav-item"><a class="nav-link" href={{ route('women-exercises') }}>Exercises</a></li> --}}
+                @if(Auth::user())
+                
+                    @if(Auth::user()->role==='1')
+                <li class="nav-item"><a class="nav-link" href="/logout">logout</a></li>
+                
+
+                @endif
+                @if(Auth::user()->role==='0')
+                <li class="nav-item"><a class="nav-link" href={{ __('Log Out') }}>lolo</a></li>
+                
+
+                @endif
+                @endif
+            </ul>
+        </div>
+    </div>
+</nav>
+<script src="{{ asset('js/scrpit.js') }}"></script>
+
+  
 </body>
 </html>
