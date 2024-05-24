@@ -51,7 +51,7 @@
   <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
       <div class="d-flex justify-content-center">
           <div class="text-center">
-              <h1 class="mx-auto my-0 text-uppercase">go to fucking gym lazy ass nigga</h1>
+              <h1 class="mx-auto my-0 text-uppercase">malak go to gym</h1>
               <h2 class="text-white-50 mx-auto mt-2 mb-5">A Fitness Gym, Website, one page containing our last informations there.</h2>
               <a class="btn btn-primary" href={{ route('login') }}>Get Started</a>
           </div>

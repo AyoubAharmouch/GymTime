@@ -10,9 +10,7 @@
 @stop
 
 @section('content')
-@if($subscriptions->isEmpty())
-            <p>No active subscriptions found.</p>
-        @else
+
 
 <a href="{{ url('admin/M') }}" class="btn btn-primary">Male</a>
             <a href="{{ url('admin/F') }}" class="btn btn-primary">Female</a>
@@ -34,7 +32,6 @@
         </table>
     </div>
 </div>@stop
-@endif
 
 @section('css')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">

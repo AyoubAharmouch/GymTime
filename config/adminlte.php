@@ -346,8 +346,8 @@ return [
         ],
 
         [
-            'text' => 'Subscribers',
-            'url' => 'admin/',
+            'text' => 'add new Subscriber',
+            'url' => '/admin/create',
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
