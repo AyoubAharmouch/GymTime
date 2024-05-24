@@ -62,6 +62,7 @@ class GymerController extends Controller
             $email=$request->input("email");
             $phone=$request->input("phone");
             $address=$request->input("address");
+            $abonement=$request->input("abonement");
 
             $UserInfo = new UserInfo();
             
@@ -73,6 +74,7 @@ class GymerController extends Controller
             $UserInfo->email=$email;
             $UserInfo->phone=$phone;
             $UserInfo->address=$address;
+            $UserInfo->payement=$abonement;
             
             $UserInfo->save();
 
@@ -199,7 +201,12 @@ class GymerController extends Controller
             }
         return view('filter', 
         ['etat'=>$etat]
-    );}
+        );}
+        elseif($etat == "create"){
+            {
+                return view("admin.create");
+            }
+        }
     
     
     else{

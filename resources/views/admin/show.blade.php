@@ -79,6 +79,19 @@
             </div>
         </div>
 
+        <div class="bb">
+            <div class="input-group my-1">
+                <span class="input-group-text label-name" id="basic-addon3">Type of abonment</span>
+                <select name="sex" id="sex" class="form-control status-select edit" data-id="{{ $data->id }}">
+                    <option value="Monthly" {{ $data->sex == "F" ? 'selected' : '' }}>Monthly</option>
+                    <option value="3 Month" {{ $data->sex == "M" ? 'selected' : '' }}>3 Month</option>
+                    <option value="6 Month" {{ $data->sex == "M" ? 'selected' : '' }}>6 Month</option>
+                    <option value="Yearly" {{ $data->sex == "M" ? 'selected' : '' }}>Yearly</option>
+                </select>
+                <button type="button" class="btn btn-success change" data-field="sex">Update</button>
+            </div>
+        </div>
+
         <button type="button" class="btn btn-danger" id="deleteButton">Delete User</button>
 
     </fieldset>

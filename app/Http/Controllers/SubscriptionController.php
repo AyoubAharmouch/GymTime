@@ -20,16 +20,16 @@ class SubscriptionController extends Controller
         $updatedAt = Carbon::parse($subscription->updated_at);
 
         switch ($paymentPeriod) {
-            case 'monthly':
+            case 'Monthly':
                 $expiryDate = $updatedAt->addMonth();
                 break;
-            case '3 month':
+            case '3 Month':
                 $expiryDate = $updatedAt->addMonths(3);
                 break;
-            case '6 month':
+            case '6 Month':
                 $expiryDate = $updatedAt->addMonths(6);
                 break;
-            case 'yearly':
+            case 'Yearly':
                 $expiryDate = $updatedAt->addYear();
                 break;
             default:

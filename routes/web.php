@@ -1,3 +1,5 @@
+
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -10,8 +12,9 @@ use App\Http\Controllers\DashboardController;
 use App\Services\ExerciseService;
 
 
-Route::get('/',[tripleController::class,'home'])->name("home");
+Route::get('/',[tripleController::class,'home'])->name("home.home");
 Route::get('/admin/{etat}', [GymerController::class, 'story'])->middleware(['auth', 'verified']);
+
 
 
 
@@ -26,7 +29,6 @@ Route::get('/subscribers', function () {
 })->name('subscribers.index');
 
 Route::middleware('auth')->group(function () {
-    Route::post('/admin/{id}',[GymerController::class,'show'])->name('user.show');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -34,9 +36,9 @@ Route::middleware('auth')->group(function () {
     
     
 Route::get('/admin', [GymerController::class, 'index'])->name('admin');
-
-    Route::get('/admin/create',[GymerController::class,'create'])->name('add_new');
+    Route::get('/admin/create',[GymerController::class,'create'])->name('admin.create');
     Route::post('/admin',[GymerController::class,'store'])->name('store');
+    Route::post('/admin/{id}',[GymerController::class,'show'])->name('user.show');
 Route::post('/admin/{id}', [GymerController::class, 'updateInfo'])->name('update');
 Route::delete('/admin/{id}', [GymerController::class, 'destroy'])->name('admin.destroy');
 Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
@@ -51,8 +53,12 @@ require __DIR__.'/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
 
 
 Route::get('/men-exercises', [ExerciseController::class, 'showMenExercises']);
 Route::get('/women-exercises', [ExerciseController::class, 'showWomenExercises']);
+
+
+
+

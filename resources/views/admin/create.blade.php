@@ -1,62 +1,15 @@
 
-<style>
-    /* Hide the increment/decrement arrows */
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    input[type="number"] {
-        -moz-appearance: textfield; /* Firefox */
-    }
-    button a{
-        text-decoration: none;
-        color:black;
-    }
-    .input-group-text{
-        width: 30%;
-    }
-
-    .button {
-  display: inline-block;
-  position: relative;
-  padding: 13px 20px;
-  border: none;
-  background: rgb(0, 57, 142);
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  text-transform: uppercase;
-  cursor: crosshair;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.button:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.14) 50%, transparent 100%);
-  transition: left 0.3s ease;
-}
-
-.button:hover:before {
-  left: 100%;
-}
 
 
 
-</style>
+@extends('adminlte::page')
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-@extends("welcome")
+@section('title', 'add new subscriber')
+
+@section('content_header')
+@stop
+
 @section('content')
-
-
 <div class="form">
     
     <div class="container justify-content-center mt-3">
@@ -64,7 +17,7 @@
     </div>
     
     <form action="{{ route('store') }}" method="post">
-        <h2 class='text-center mb-5 mt-2 '>Add new </h2>  <hr>
+        <h2 class='text-center mb-5 mt-2 '>Add new subscriber </h2>  <hr>
 
         @csrf
         <fieldset>
@@ -172,6 +125,23 @@
             @enderror
 
         </div>
+        <div class="bb">
+            <div class="input-group my-1">
+            <span class="input-group-text cont" id="basic-addon3">Type of abonement: </span>
+            <select name="abonement" id="abonement" class="form-control status-select edit" value="{{ old('abonement') }}" required>
+                <option value="Monthly">Monthly</option>
+                <option value="3 Month">3 Month</option>
+                <option value="6 Month">6 Month</option>
+                <option value="Yearly">Yearly</option>
+            </select>
+            
+            </div>@error('ville')
+            <div class='text-danger a '>
+                {{ $message }}
+            </div><br>
+            @enderror
+
+        </div>
         
         <button class="button">Add </button>
     
@@ -180,5 +150,69 @@
         
     </form>
 </div>
+@stop
 
-@endsection
+@section('css')
+<style>
+    /* Hide the increment/decrement arrows */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield; /* Firefox */
+    }
+    button a{
+        text-decoration: none;
+        color:black;
+    }
+    .input-group-text{
+        width: 30%;
+    }
+
+    .button {
+  display: inline-block;
+  position: relative;
+  padding: 13px 20px;
+  border: none;
+  background: rgb(0, 57, 142);
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: crosshair;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.14) 50%, transparent 100%);
+  transition: left 0.3s ease;
+}
+
+.button:hover:before {
+  left: 100%;
+}
+
+
+
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+@stop
+
+@section('js')
+
+@stop
+
+
+
