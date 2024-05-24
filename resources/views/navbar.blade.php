@@ -45,14 +45,23 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link " href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link " href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link " href="#projects">spartagym</a></li>
                 <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
                 {{-- <li class="nav-item"><a class="nav-link" href={{ route('women-exercises') }}>Exercises</a></li> --}}
                 @if(Auth::user())
                 
                     @if(Auth::user()->role==='1')
-                <li class="nav-item"><a class="nav-link" href="/logout">logout</a></li>
-                
+                    <li class="nav-item">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        <a class="nav-link" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                    </li>
+                                    
 
                 @endif
                 @if(Auth::user()->role==='0')

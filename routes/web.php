@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GymerController;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\DashboardController;
 use App\Services\ExerciseService;
 
 
