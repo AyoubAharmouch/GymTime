@@ -91,7 +91,7 @@ class GymerController extends Controller
         return view(
             
                 "admin.show",
-               [ "data"=>$UserShow
+                [ "data"=>$UserShow
             ]
         );
     }
@@ -164,5 +164,55 @@ class GymerController extends Controller
             return response()->json(['success' => false, 'message' => 'Server error', 'error' => $e->getMessage()], 500);
         }
     }
+
+
+    // public function story(){
+    //     // $data = UserInfo::where('sex', '=', $sex)->get();
+    //     return view("admin.create");
+
+    //     // return view ('product',[
+    //     //     'product'=>$data,
+    //     //     'cat'=>$cat
+    //     // ]);
+    // }
+
+    public function story(Request $request , $etat){
+
+        if($etat =="M" || $etat == "F" ){
+            if ($request->ajax()) {
+                $data = UserInfo::where('sex', '=', $etat)->get();
+                    
+        
+                return dataTables()->of($data)
+                    ->addIndexColumn()
+                    ->addColumn('date', function($data){
+                        return $data->created_at->format('d/m/Y');
+                    })
+                    ->addColumn('time', function($data){
+                        return $data->created_at->format(' H:i:s');
+                    })
+                    ->addColumn('action', function($data){
+                        return '<a class="btn btn-outline-dark text-center " href="/admin/'.$data->id.'"> Voir </a>';                    })
+                    
+                    ->rawColumns(['action'])
+                    ->make(true);
+            }
+        return view('filter', 
+        ['etat'=>$etat]
+    );}
+    
+    
+    else{
+        $client = UserInfo::find($etat);
+        if (!$client) {
+            abort(404);
+        }
+        return view("admin.show",
+        [ "data"=>$client
+    ]
+    );
+    }
+}
+    
 
 }
