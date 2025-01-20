@@ -10,6 +10,106 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+.body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #efefef; */
+}
+
+.slide-container{
+  max-width: 1120px;
+  width:100% ;
+  padding: 40px 0;
+}
+.card-image{
+  position: relative;
+  height:150px ;
+  width:150px;
+  border-radius:50%;
+}
+.pag{
+  padding-top: 5%;
+}
+.card-image .card-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius:50%;
+  border: 4px solid #4070f4;
+}
+
+.cardd{
+  
+  border-radius: 25%;
+  /* background-color: #efefef; */
+}
+.slide-content{
+  margin:0 40px;
+}
+.image-content , .card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+.image-content{
+  row-gap: 5px;
+  position: relative;
+  padding: 25px 0;
+}
+.name{
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+.description{
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+.button{
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  pad: 8px 16px;
+  background-color: #4070f4;
+  border-radius: 6px;
+  margin: 20px;
+  padding: 7px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover{
+  background-color:#265df2 ;
+}
+.overlay{
+  position:absolute;
+  left:0 ;
+  top:0;
+  height: 100%;
+  width: 100%;
+  border: #00000000 solid 0px;
+  background-color: #4070f4;
+  border-radius: 25px 25px 0 25px;
+}
+.overlay::before , .overlay::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40;
+  height: 40px;
+  width: 40px;
+  background-color:#4070f4 ;
+}
+
+.overlay::after{
+  border-radius:0 25px 0 0 ;
+  background-color: rgb(251, 251, 251);
+}
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

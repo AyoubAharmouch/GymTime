@@ -7,18 +7,43 @@ use App\Http\Requests\user_info_validate;
 use App\Models\UserInfo;
 use App\Models\DeleteUser;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Models\User;
 
 
 
 class GymerController extends Controller
 {
-    
+    // public function userdel(Request $request){
+    //     if ($request->ajax()) {
+    //         $data = DeleteUser::select('*');
+
+
+    //         return dataTables()->of($data)
+    //             ->addIndexColumn()
+    //             ->addColumn('date', function($data){
+    //                 return $data->created_at->format('d/m/Y');
+    //             })
+    //             ->addColumn('time', function($data){
+    //                 return $data->created_at->format(' H:i:s');
+    //             })
+    //             ->addColumn('action', function($data){
+    //                 return '<a class="btn btn-outline-dark text-center " href="/admin/'.$data->id.'"> Voir </a>';
+    //             })
+
+    //             ->rawColumns(['action'])
+    //             ->make(true);
+    //     }
+
+    //         return view('subscriptions.removed');
+    // }
     public function index(Request $request)
 {
-    
+
     if ($request->ajax()) {
         $data = UserInfo::select('*');
-            
+
 
         return dataTables()->of($data)
             ->addIndexColumn()
@@ -31,11 +56,11 @@ class GymerController extends Controller
             ->addColumn('action', function($data){
                 return '<a class="btn btn-outline-dark text-center " href="/admin/'.$data->id.'"> Voir </a>';
             })
-            
+
             ->rawColumns(['action'])
             ->make(true);
     }
-    
+
         return view('admin.index');
     }
 
@@ -50,38 +75,58 @@ class GymerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-        public function store(request $request)
-        {
-            // $request->validated();
-        
-            $last_name=$request->input("last_name");
-            $first_name=$request->input("first_name");
-            $sex=$request->input("sex");
-            $cin=$request->input("cin");
-            $birth=$request->input("birth");
-            $email=$request->input("email");
-            $phone=$request->input("phone");
-            $address=$request->input("address");
-            $abonement=$request->input("abonement");
+            public function store(request $request)
+            {
+                // $request->validated();
 
-            $UserInfo = new UserInfo();
-            
-            $UserInfo->last_name=$last_name;
-            $UserInfo->first_name=$first_name;
-            $UserInfo->sex=$sex;
-            $UserInfo->cin=$cin;
-            $UserInfo->birth=$birth;
-            $UserInfo->email=$email;
-            $UserInfo->phone=$phone;
-            $UserInfo->address=$address;
-            $UserInfo->payement=$abonement;
-            
-            $UserInfo->save();
+                $last_name=$request->input("last_name");
+                $first_name=$request->input("first_name");
+                $sex=$request->input("sex");
+                $cin=$request->input("cin");
+                $birth=$request->input("birth");
+                $email=$request->input("email");
+                $phone=$request->input("phone");
+                $address=$request->input("address");
+                $abonement=$request->input("abonement");
 
-            return back()
-            ->with('success','You have successfully added an article.');
+                $UserInfo = new UserInfo();
 
-        }
+                $UserInfo->last_name=$last_name;
+                $UserInfo->first_name=$first_name;
+                $UserInfo->sex=$sex;
+                $UserInfo->cin=$cin;
+                $UserInfo->birth=$birth;
+                $UserInfo->email=$email;
+                $UserInfo->phone=$phone;
+                $UserInfo->address=$address;
+                $UserInfo->payement=$abonement;
+
+                $UserInfo->save();
+
+
+
+                //add new mail
+                $birthYear = date('Y', strtotime($birth));
+                $password = $last_name . $first_name . $birthYear;
+
+                $user = new User();
+                $user->email = $email;
+                $user->name = $first_name . ' ' . $last_name;
+               // $user->password = Hash::make($password);
+                $user->password = $password;
+                $user->save();
+
+                $details = [
+                    'title' => 'Your Account Password',
+                    'body' => 'Your password is: ' . $password
+                ];
+
+                Mail::to($email)->send(new \App\Mail\PasswordMail($details));
+
+                return back()
+                ->with('success','You have successfully add a new subscriber.');
+
+            }
 
     /**
      * Display the specified resource.
@@ -91,7 +136,7 @@ class GymerController extends Controller
 
         $UserShow= UserInfo::findOrFail($id);
         return view(
-            
+
                 "admin.show",
                 [ "data"=>$UserShow
             ]
@@ -140,11 +185,11 @@ class GymerController extends Controller
         try {
             // Find the user to delete
             $user = UserInfo::findOrFail($id);
-    
+
             // Create a new instance of DeleteUser and fill it with the user's data
-            
+
             $deleteUser = new DeleteUser();
-            
+
             $deleteUser->last_name=$user->last_name;
             $deleteUser->first_name=$user->first_name;
             $deleteUser->sex=$user->sex;
@@ -153,13 +198,13 @@ class GymerController extends Controller
             $deleteUser->email=$user->email;
             $deleteUser->phone=$user->phone;
             $deleteUser->address=$user->address;
-            
+
             $deleteUser->save();
 
-    
+
             // Delete the user from UserInfo table
             $user->delete();
-    
+
             return response()->json(['success' => true, 'message' => 'User archived and deleted successfully']);
         } catch (\Exception $e) {
             Log::error('Deletion failed: ' . $e->getMessage());
@@ -180,11 +225,12 @@ class GymerController extends Controller
 
     public function story(Request $request , $etat){
 
+
         if($etat =="M" || $etat == "F" ){
             if ($request->ajax()) {
                 $data = UserInfo::where('sex', '=', $etat)->get();
-                    
-        
+
+
                 return dataTables()->of($data)
                     ->addIndexColumn()
                     ->addColumn('date', function($data){
@@ -195,11 +241,11 @@ class GymerController extends Controller
                     })
                     ->addColumn('action', function($data){
                         return '<a class="btn btn-outline-dark text-center " href="/admin/'.$data->id.'"> Voir </a>';                    })
-                    
+
                     ->rawColumns(['action'])
                     ->make(true);
             }
-        return view('filter', 
+        return view('filter',
         ['etat'=>$etat]
         );}
         elseif($etat == "create"){
@@ -207,19 +253,17 @@ class GymerController extends Controller
                 return view("admin.create");
             }
         }
-    
-    
-    else{
+
+
+    elseif($etat ){
         $client = UserInfo::find($etat);
         if (!$client) {
             abort(404);
         }
-        return view("admin.show",
-        [ "data"=>$client
-    ]
-    );
+        return view("admin.show",[ "data"=>$client ] );
     }
 }
-    
+
+
 
 }

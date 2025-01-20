@@ -328,6 +328,12 @@ return [
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
+        [
+            'text' => 'add new Subscriber',
+            'url' => '/admin/create',
+            'icon' => 'far fa-fw fa-file',
+            'label_color' => 'success',
+        ],
 
         [
             'text' => 'Filter by sex',
@@ -345,9 +351,24 @@ return [
             ],
         ],
 
+        
         [
-            'text' => 'add new Subscriber',
-            'url' => '/admin/create',
+            'text' => 'show the courses',
+            'url' => '/Allcourses',
+            'icon' => 'far fa-fw fa-file',
+            'label_color' => 'success',
+        ],
+        
+        [
+            'text' => 'show the coaches',
+            'url' => '/coaches',
+            'icon' => 'far fa-fw fa-file',
+            'label_color' => 'success',
+        ],
+
+        [
+            'text' => 'add new coache',
+            'url' => '/coaches/create',
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
@@ -355,11 +376,16 @@ return [
         [
             'text' => 'subscribes delete',
             'icon_color' => 'red',
-            'url' => '#',
+            'url' => '/removed',
         ],
         [
             'text' => 'Expired Subscriptions ',
             'icon_color' => 'yellow',
+            'url' => '/subscriptions/expire',
+        ],
+         [
+            'text' => 'active subscribers',
+            'icon_color' => 'cyan',
             'url' => '/subscriptions',
         ],
         
@@ -376,11 +402,7 @@ return [
         ],
         
         
-        // [
-        //     'text' => 'information',
-        //     'icon_color' => 'cyan',
-        //     'url' => '#',
-        // ],
+       
     ],
 
     /*

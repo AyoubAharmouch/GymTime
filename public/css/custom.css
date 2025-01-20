@@ -1,0 +1,46 @@
+/* custom.css */
+
+/* General body styling */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Styling the heading */
+h1 {
+    color: #343a40;
+    font-weight: bold;
+}
+
+/* Styling the table */
+.table {
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table th {
+    background-color: #343a40;
+    color: white;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table-responsive {
+        margin-bottom: 15px;
+    }
+}
+
+.kurz{
+   padding-top:5%;
+}
+.navbar{
+    background-color: #343a40;
+}

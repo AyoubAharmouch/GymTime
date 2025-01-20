@@ -10,6 +10,6 @@ class DeleteUser extends Model
     use HasFactory;
 
     protected $table = 'delete_users'; // Ensure this matches your table name
-    protected $fillable = ['last_name', 'first_name', 'sex', 'cin', 'birth', 'email', 'phone', 'address'];
+    protected $fillable = ['last_name', 'first_name', 'sex', 'cin', 'birth', 'email', 'phone', 'address','payement'];
 
 }

@@ -6,7 +6,6 @@
 //
 // Scripts
 // 
-console.log('baghdadi');
 
 window.addEventListener('DOMContentLoaded', event => {
 
@@ -53,3 +52,35 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+
+function sendMail(){
+    var parms={
+        from_name : document.getElementById('name').value,
+        email_id : document.getElementById('email_id').value,
+        message : document.getElementById('mssg').value,
+
+    }
+    emailjs.send("service_o3z6zwk" , "template_ucxtzam" , parms).then(function (res){
+        alert('message was send seccuccfuly')
+    })
+}
+
+
+
+var swiper = new Swiper(".slde-content", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    slidersPerGroup:3,
+    loop: true,
+    loopFillGroupWithBlank:true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+  console.log('ayoub');

@@ -7,20 +7,7 @@
         "photo": "https://i.pinimg.com/originals/c5/1f/83/c51f8385341906f47643cb051c60bb3e.gif",
         "videoLink": "https://www.youtube.com/watch?v=IODxDxX7oi4"
       },
-      {
-        "name": "Bench Press",
-        "targetMuscle": "Chest",
-        "description": "A compound exercise that involves pressing a weight upwards from a supine position, targeting the chest, shoulders, and triceps.",
-        "photo": "https://i.pinimg.com/564x/5e/ef/03/5eef0397dd47c74d69ee2a766fc744a7.jpg",
-        "videoLink": "https://www.youtube.com/watch?v=4T9UQ4FBVXI"
-      },
-      {
-        "name": "Chest Fly",
-        "targetMuscle": "Chest",
-        "description": "An isolation exercise that targets the chest muscles by bringing the arms together in front of the body.",
-        "photo": "https://i.pinimg.com/236x/ed/4d/1f/ed4d1f6ce1bdbb4cda128ac708272500.jpg",
-        "videoLink": "https://www.youtube.com/watch?v=jOkv1iGT8gk"
-      },
+      
       {
         "name": "Bicep Curl",
         "targetMuscle": "Biceps",

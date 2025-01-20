@@ -75,12 +75,14 @@
         }
     }
 </style>
-
 <div class="page-container">
-    <h1>Men's Exercises</h1>
+    @include('items.index1')
+
+    
+
     <div class="card-container">
         @foreach($exercises as $exercise)
-            <div class="card">
+            <div class="card" data-muscle="{{ $exercise['targetMuscle'] }}">
                 <img src="{{ $exercise['photo'] }}" alt="{{ $exercise['name'] }}">
                 <div class="card-content">
                     <strong>Name:</strong> {{ $exercise['name'] }}<br>
@@ -89,9 +91,40 @@
                     <a href="{{ $exercise['videoLink'] }}" target="_blank">Watch Video</a>
                 </div>
             </div>
+
+
+
+
+            {{-- <div class="card" data-muscle="{{ $exercise['targetMuscle'] }}">
+                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                  <img src="{{ $exercise['photo'] }}" alt="{{ $exercise['name'] }}" class="img-fluid"/>
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><strong>Name:</strong> {{ $exercise['name'] }}</h5>
+                  <p class="card-title">Target Muscle:</strong> {{ $exercise['targetMuscle'] }}</p>
+                  <p class="card-text">{{ $exercise['description'] }}</p>
+                  <a href={{ $exercise['videoLink'] }} target="_blank" class="btn btn-primary" data-mdb-ripple-init>Watch Video</a>
+                </div>
+              </div> --}}
         @endforeach
     </div>
 </div>
+
+<script>
+    function filterExercises(selectedMuscles) {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(function(card) {
+        const targetMuscles = card.getAttribute('data-muscle').split(',');
+        const isVisible = selectedMuscles.some(muscle => targetMuscles.includes(muscle));
+        card.style.display = isVisible ? 'block' : 'none';
+    });
+}
+
+</script>
+
 @endsection
 
 @endif

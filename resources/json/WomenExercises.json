@@ -8,20 +8,6 @@
         "videoLink": "https://www.youtube.com/watch?v=oGi9dtpd2wU"
       },
       {
-        "name": "Dumbbell Lunges",
-        "targetMuscle": "Legs",
-        "description": "An exercise that targets the quadriceps, hamstrings, and glutes, performed by stepping forward with one leg and lowering the body until both knees are bent at a 90-degree angle.",
-        "photo": "https://i.pinimg.com/236x/4d/80/a9/4d80a93ccc612faa65d48c23dfc1d4fa.jpg",
-        "videoLink": "https://www.youtube.com/watch?v=QOVaHwm-Q6U"
-      },
-      {
-        "name": "Shoulder Press",
-        "targetMuscle": "Shoulders",
-        "description": "An exercise targeting the deltoid muscles, performed by pressing a weight overhead from shoulder height to full extension.",
-        "photo": "https://i.pinimg.com/236x/17/d5/ac/17d5ac1ddda0a6a17ab06482f7cc8600.jpg",
-        "videoLink": "https://www.youtube.com/watch?v=JUGjgkjeCtE"
-      },
-      {
         "name": "Plank",
         "targetMuscle": "Core",
         "description": "An isometric exercise that strengthens the core muscles, performed by holding a position similar to a push-up but with the forearms on the ground.",
